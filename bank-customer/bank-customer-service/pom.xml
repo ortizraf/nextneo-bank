@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.nextneo.bank.customer</groupId>
+		<artifactId>bank-customer</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bank-customer-service</artifactId>
+	<name>Bank Customer - Service</name>
+	<description>Bank Customer - Service</description>
+	<dependencies>
+	
+		<!-- BANK CUSTOMER REPOSITORY -->		
+		<dependency>
+			<groupId>com.nextneo.bank.customer</groupId>
+			<artifactId>bank-customer-repository</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- BANK FRAMEWORK INTEGRATION -->	
+		<dependency>
+			<groupId>com.nextneo.bank.framework</groupId>
+			<artifactId>bank-framework-integration</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- BANK FRAMEWORK JMS -->	
+		<dependency>
+			<groupId>com.nextneo.bank.framework</groupId>
+			<artifactId>bank-framework-jms</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- JAVA EE -->		
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+</project>

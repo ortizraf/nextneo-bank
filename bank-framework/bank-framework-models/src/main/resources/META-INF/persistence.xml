@@ -1,0 +1,29 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="bank">
+	
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<jta-data-source>java:/bank</jta-data-source>
+
+		<class>com.nextneo.bank.models.entity.Account</class>
+		<class>com.nextneo.bank.models.entity.User</class>		
+		<class>com.nextneo.bank.models.entity.AccountMovement</class>
+		<class>com.nextneo.bank.models.entity.Currency</class>	
+		<class>com.nextneo.bank.models.entity.Branch</class>
+		<class>com.nextneo.bank.models.entity.GroupRole</class>
+
+		<properties>
+
+			<!-- Configuracoes especificas do Hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+
+		</properties>
+	</persistence-unit>
+</persistence>

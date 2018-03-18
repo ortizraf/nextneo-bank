@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+		
+	<ui:define name="content">
+		<h1 class="aw-page-title"><h:outputText value="#{homeTitle}" /></h1>
+		
+		<h:form id="frm">
+			
+			
+		</h:form>
+		
+			<p:panel id="toggleable" header="Account Balance and Account Statement" toggleable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">	      
+		 
+		        <p:panelGrid columns="2" layout="grid">
+					<f:facet name="header">
+				        <p:row>
+				            <p:column>account balance</p:column>
+				        </p:row>			 
+				    </f:facet>
+				        <p:row>
+				        <p:column>
+				        <h:outputText value="#{homeBean.accountBalance}" >
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+				        	</h:outputText>
+				        </p:column>
+				    </p:row>     
+				</p:panelGrid>
+		        
+				<h:panelGrid columns="2" cellpadding="10">
+		            <p:tabView>
+				        <p:tab title="latest launches">
+				            <h:panelGrid columns="2" cellpadding="10">
+				               <p:dataTable var="accountMovement" value="#{homeBean.accountMovementList}">								 
+								    <p:column headerText="date">
+								        <h:outputText value="#{accountMovement.launchDate.time}">
+				                            <f:convertDateTime pattern="dd/MM/yyyy" />
+				                        </h:outputText>
+								    </p:column>
+								 
+								    <p:column headerText="description">
+								        <h:outputText value="#{accountMovement.description}" />
+								    </p:column>
+								 
+								    <p:column headerText="value">
+								        <h:outputText value="#{accountMovement.value}" />
+								    </p:column>
+								</p:dataTable>
+				            </h:panelGrid>
+				        </p:tab>
+				        <p:tab title="future launches">
+				            <h:panelGrid columns="2" cellpadding="10">
+				                 <p:dataTable var="accountMovementFuture" value="#{homeBean.accountMovementFutureList}">								 
+								    <p:column headerText="date">
+								        <h:outputText value="#{accountMovementFuture.launchDate.time}">
+				                            <f:convertDateTime pattern="dd/MM/yyyy" />
+				                        </h:outputText>
+				                    </p:column>
+								 
+								    <p:column headerText="description">
+								        <h:outputText value="#{accountMovementFuture.description}" />
+								    </p:column>
+								 
+								    <p:column headerText="value">
+								        <h:outputText value="#{accountMovementFuture.value}" />
+								    </p:column>
+								</p:dataTable>
+				            </h:panelGrid>
+				        </p:tab>
+				    </p:tabView>
+		        </h:panelGrid>
+		 
+		    </p:panel> 
+	</ui:define>
+	
+</ui:composition>

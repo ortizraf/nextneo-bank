@@ -1,4 +1,4 @@
-package com.nextneo.bank.integration.wrapper;
+package com.nextneo.bank.integration.dto.wrapper;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 import com.nextneo.bank.integration.dto.GroupRoleDto;
 import com.nextneo.bank.integration.dto.enums.UserTypeDto;
 
-public class UserLoggedWrapper {
+public class UserLoggedDtoWrapper {
 
 	private Calendar lastAccess;
 	
@@ -78,7 +78,7 @@ public class UserLoggedWrapper {
 		this.accountsId = accountsId;
 	}
 	
-	public UserLoggedWrapper() {
+	public UserLoggedDtoWrapper() {
 		super();
 	}
 	

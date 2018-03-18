@@ -17,11 +17,11 @@ Java SOA project that provides a bank service.
 
 ## Configure
 
-###Database
+### Database
 
 - Run <a href="https://github.com/ortizraf/nextneo-bank/raw/master/docs/scripts/dump.sql">script</a>
 
-###JBoss Wildfly
+### JBoss Wildfly
 
 - go to /modules/system/layers/base/com/
 - Create a folder /mysql/main/

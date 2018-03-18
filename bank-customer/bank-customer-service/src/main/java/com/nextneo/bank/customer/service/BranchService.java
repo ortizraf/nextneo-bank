@@ -7,7 +7,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.nextneo.bank.customer.repository.AgencyRepository;
+import com.nextneo.bank.customer.repository.BranchRepository;
 import com.nextneo.bank.models.entity.Branch;
 
 /**
@@ -17,18 +17,18 @@ import com.nextneo.bank.models.entity.Branch;
 * @version 1.0
 */
 @Stateless
-public class AgencyService {
+public class BranchService {
 	
-	private static final Logger LOGGER = Logger.getLogger( AgencyService.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( BranchService.class.getName() );
 	
 	@Inject
-	AgencyRepository repository;
+	BranchRepository repository;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Branch findByAgencyNumber(String agencyNumber){ 	
 		LOGGER.info(" findById ");
 		
-		return repository.findByAgencyNumber(agencyNumber);
+		return repository.findByBranchNumber(agencyNumber);
 	}
 
 }

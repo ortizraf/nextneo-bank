@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import com.nextneo.bank.customer.service.AccountMovementService;
 import com.nextneo.bank.customer.service.mapper.AccountMovementMapper;
 import com.nextneo.bank.integration.dto.AccountMovementDto;
-import com.nextneo.bank.integration.wrapper.AccountMovementAddWrapper;
+import com.nextneo.bank.integration.dto.wrapper.AccountMovementAddDtoWrapper;
 import com.nextneo.bank.models.entity.AccountMovement;
 import com.nextneo.bank.models.enums.AccountMovementType;
 import com.nextneo.bank.utils.exception.BusinessException;
@@ -44,7 +44,7 @@ public class AccountMovementResource {
 	@Path(ResourcePath.AccountMovement.ADD_ACCOUNT_MOVEMENT)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public AccountMovementDto addAccountMovement(AccountMovementAddWrapper accountMovementAddDto) throws BusinessException, Exception {
+	public AccountMovementDto addAccountMovement(AccountMovementAddDtoWrapper accountMovementAddDto) throws BusinessException, Exception {
 		LOGGER.info(" AccountMovementWS - addAccountMovement "+accountMovementAddDto.getValue());
 				
 		AccountMovementDto accountMovementDto = null;

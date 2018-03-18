@@ -16,7 +16,7 @@ import com.nextneo.bank.customer.repository.CustomerRepository;
 import com.nextneo.bank.customer.repository.LoginRepository;
 import com.nextneo.bank.integration.dto.UserDto;
 import com.nextneo.bank.integration.wrapper.LoginWrapper;
-import com.nextneo.bank.integration.wrapper.UserLoggedWrapper;
+import com.nextneo.bank.integration.dto.wrapper.UserLoggedDtoWrapper;
 import com.nextneo.bank.models.entity.User;
 import com.nextneo.bank.utils.crypto.Encryptor;
 import com.nextneo.bank.utils.errors.Errors;
@@ -68,7 +68,7 @@ public class LoginService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public UserLoggedWrapper getInfoAccount(UserDto userDto) throws BusinessException{
+	public UserLoggedDtoWrapper getInfoAccount(UserDto userDto) throws BusinessException{
 		
 		Errors errors = new Errors();
 				
@@ -81,7 +81,7 @@ public class LoginService {
 			throw new BusinessException("invalid data", errors);
 		}
 		
-		UserLoggedWrapper userLoggedWrapper = new UserLoggedWrapper();
+		UserLoggedDtoWrapper userLoggedWrapper = new UserLoggedDtoWrapper();
 		userLoggedWrapper.setLogin(userDto.getLogin());
 		userLoggedWrapper.setPassword(userDto.getPassword());
 		userLoggedWrapper.setLastAccess(userDto.getLastAccess());

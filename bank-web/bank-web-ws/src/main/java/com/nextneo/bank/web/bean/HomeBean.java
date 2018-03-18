@@ -16,7 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.nextneo.bank.integration.dto.AccountMovementDto;
-import com.nextneo.bank.integration.wrapper.UserLoggedWrapper;
+import com.nextneo.bank.integration.dto.wrapper.UserLoggedDtoWrapper;
 import com.nextneo.bank.web.service.HomeService;
 
 @SuppressWarnings("serial")
@@ -41,11 +41,11 @@ public class HomeBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		UserLoggedWrapper userLogged = null;
+		UserLoggedDtoWrapper userLogged = null;
 		
 		FacesContext context = FacesContext.getCurrentInstance();
 		if (context != null && context.getExternalContext() != null) {
-			userLogged = (UserLoggedWrapper) context.getExternalContext().getSessionMap().get("userLogged");
+			userLogged = (UserLoggedDtoWrapper) context.getExternalContext().getSessionMap().get("userLogged");
 			if (userLogged != null) {
 				LOGGER.info("userId = "+userLogged.getLogin());
 			}

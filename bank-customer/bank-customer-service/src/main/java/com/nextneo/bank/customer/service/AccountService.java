@@ -31,7 +31,7 @@ public class AccountService {
 	AccountRepository repository;
 	
 	@Inject
-	AgencyService agencyService;
+	BranchService agencyService;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Account addAccount(Account account) throws BusinessException { 	

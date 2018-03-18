@@ -6,7 +6,7 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-import com.nextneo.bank.integration.wrapper.UserLoggedWrapper;
+import com.nextneo.bank.integration.dto.wrapper.UserLoggedDtoWrapper;
 
 public class Authorizer implements PhaseListener {
 
@@ -22,7 +22,7 @@ public class Authorizer implements PhaseListener {
 
 		System.out.println(namePage); 
 
-		UserLoggedWrapper userLogged = (UserLoggedWrapper) context.getExternalContext().getSessionMap().get("userLogged");
+		UserLoggedDtoWrapper userLogged = (UserLoggedDtoWrapper) context.getExternalContext().getSessionMap().get("userLogged");
 		if (userLogged != null) {
 			isLogged = true;
 		} else {

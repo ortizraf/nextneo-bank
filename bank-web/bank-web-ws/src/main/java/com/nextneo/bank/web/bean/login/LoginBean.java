@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 
 import com.nextneo.bank.integration.dto.UserDto;
-import com.nextneo.bank.integration.wrapper.UserLoggedWrapper;
+import com.nextneo.bank.integration.dto.wrapper.UserLoggedDtoWrapper;
 import com.nextneo.bank.web.service.login.LoginService;
 
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class LoginBean implements Serializable {
 
 		FacesContext context = FacesContext.getCurrentInstance();
 
-		UserLoggedWrapper userLoggedWrapper = null;;
+		UserLoggedDtoWrapper userLoggedWrapper = null;;
 		try {
 			userLoggedWrapper = loginService.login(user);
 		} catch (Exception e) {

@@ -1,10 +1,10 @@
-package com.nextneo.bank.integration.wrapper;
+package com.nextneo.bank.integration.dto.wrapper;
 
 import java.math.BigDecimal;
 
 import com.nextneo.bank.integration.dto.enums.AccountMovementTypeDto;
 
-public class AccountMovementAddWrapper {
+public class AccountMovementAddDtoWrapper {
 	
 	long accountId;
 	
@@ -14,7 +14,7 @@ public class AccountMovementAddWrapper {
 	
 	AccountMovementTypeDto type;
 	
-	public AccountMovementAddWrapper(){
+	public AccountMovementAddDtoWrapper(){
 		
 	}
 

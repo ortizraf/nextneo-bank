@@ -16,7 +16,7 @@ import com.nextneo.bank.customer.service.LoginService;
 import com.nextneo.bank.customer.service.mapper.UserMapper;
 import com.nextneo.bank.integration.dto.UserDto;
 import com.nextneo.bank.integration.wrapper.LoginWrapper;
-import com.nextneo.bank.integration.wrapper.UserLoggedWrapper;
+import com.nextneo.bank.integration.dto.wrapper.UserLoggedDtoWrapper;
 import com.nextneo.bank.models.entity.User;
 import com.nextneo.bank.utils.exception.BusinessException;
 import com.nextneo.bank.utils.path.ResourcePath;
@@ -47,7 +47,7 @@ public class LoginResource {
 		LOGGER.info(" doLogin ");
 			
 		UserDto userDto = null;
-		UserLoggedWrapper userLoggedWrapper = null;
+		UserLoggedDtoWrapper userLoggedWrapper = null;
 		
 		try {
 			User user = service.doLogin(loginWrapper);

@@ -63,9 +63,12 @@ Java SOA project that provides a bank service.
 #### /bank-customer-ws/customer
 
 ##### request
+```json
 {"name": "Milton", "lastName":"Friedman", "document": "50300007124"}
+```
 
 ##### response
+```json
 {
     "id": 3,
     "name": "Milton",
@@ -80,13 +83,15 @@ Java SOA project that provides a bank service.
         "groupRoles": null
     }
 }
-
+```
 #### /bank-customer-ws/account/addAccount
 
 ##### request
+```json
 {"branchNumber": "1618", "accountDigit": "5", "status": "ACTIVE", "type": "CHECKING_ACCOUNT", "currencyId": 1, "usersId": [1]}
-
+```
 ##### response
+```json
 {
     "id": 1,
     "branchNumber": "1618",
@@ -99,13 +104,15 @@ Java SOA project that provides a bank service.
         1
     ]
 }
-
+```
 #### /bank-customer-ws/account-movement/addAccountMovement
 
 ##### request
+```json
 {"accountId":1, "value": "55.00", "description": "TEST", "type":"CREDIT"}
-
+```
 ##### response
+```json
 {
     "launchDate": 1521254177646,
     "value": 55,
@@ -115,3 +122,4 @@ Java SOA project that provides a bank service.
     "type": "CREDIT",
     "accountId": 1
 }
+```

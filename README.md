@@ -28,7 +28,7 @@ Java SOA project that provides a bank service.
 - add mysql connector jar
 
 - create a file module.xml with:
-
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="urn:jboss:module:1.0" name="com.mysql">
   <resources>
@@ -38,9 +38,9 @@ Java SOA project that provides a bank service.
     <module name="javax.api"/>
   </dependencies>
 </module>
-
+```
 - modify the standalone.xml file in /standalone/configuration/ with:
-
+```xml
 <datasource jndi-name="java:/bank" pool-name="bank" enabled="true" use-java-context="true">
     <connection-url>jdbc:mysql://localhost:3306/bank</connection-url>
     <driver>com.mysql</driver>
@@ -54,7 +54,7 @@ Java SOA project that provides a bank service.
             <password>root</password>
         </security>
 </datasource>
-
+```
 
 ## Info
 

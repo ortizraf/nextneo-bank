@@ -6,7 +6,7 @@ Java SOA project that provides a bank service.
 - Web module was used: JSF 2.2, Primefaces 6, Spring 5 running on Tomcat 
 - Service modules were used: EJB 3.2, JPA 2 running on JBoss Wildfly
 
-<img src="../docs/images/software_design.png" alt="Software Design" height="300" />
+<img src="https://github.com/ortizraf/nextneo-bank/raw/master/docs/images/software_design.png" alt="Software Design" height="300" />
 
 ## Requirements
 
@@ -19,7 +19,7 @@ Java SOA project that provides a bank service.
 
 ###Database
 
-- Run <a href="../docs/scripts/dump.sql">script</a>
+- Run <a href="https://github.com/ortizraf/nextneo-bank/raw/master/docs/scripts/dump.sql">script</a>
 
 ###JBoss Wildfly
 

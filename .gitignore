@@ -16,6 +16,7 @@ local.properties
 .loadpath
 .eclipse
 /build/
+*.tern-project
 
 # Maven
 target/

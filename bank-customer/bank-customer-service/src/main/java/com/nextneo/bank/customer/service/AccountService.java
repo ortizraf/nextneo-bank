@@ -34,14 +34,14 @@ public class AccountService {
 	BranchService agencyService;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public Account addAccount(Account account) throws BusinessException { 	
+	public Account addAccount(Account account) throws BusinessException, Exception {
 		LOGGER.info(" save ");
 		consist(account);
 		
 		return repository.addAccount(account);
 	}
 	
-	private void consist(Account account) throws BusinessException {
+	private void consist(Account account) throws BusinessException, Exception {
 		Errors errors = new Errors();
 		if(account==null) {
 			errors.addError(MessageProperties.getMessage("account_required"));
@@ -65,7 +65,7 @@ public class AccountService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public Account updateAccount(Account account) throws BusinessException { 	
+	public Account updateAccount(Account account) throws BusinessException, Exception {	
 		LOGGER.info(" update ");
 		if(account.getId()==null){
 			throw new BusinessException(MessageProperties.getMessage("account_id_required"), null);
@@ -75,21 +75,25 @@ public class AccountService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<Account> findAll(){ 
+	public List<Account> findAll() throws BusinessException, Exception {
 		LOGGER.info(" findAll ");
 		
 		return repository.findAll();
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public Account findById(long id, long userId){ 	
+	public Account findById(long id, long userId) throws BusinessException, Exception {
 		LOGGER.info(" findById ");
 		
-		return repository.findById(id, userId);
+		Account account = repository.findById(id, userId);
+		if (account == null) {
+			throw new BusinessException(MessageProperties.getMessage("account_not_found"), null);
+		}
+		return account;
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<Account> findLastMovements(long id){ 	
+	public List<Account> findLastMovements(long id) throws BusinessException, Exception {	
 		List<Account> accounts = repository.findLastMovements(id);
 		if(accounts!=null && !accounts.isEmpty()){
 			for(Account a : accounts){
@@ -102,7 +106,7 @@ public class AccountService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<Account> findByCustomer(long customerId){
+	public List<Account> findByCustomer(long customerId) throws BusinessException, Exception { 
 		LOGGER.info(" findByUser ");
 
 		List<Account> accounts = repository.findByCustomer(customerId);

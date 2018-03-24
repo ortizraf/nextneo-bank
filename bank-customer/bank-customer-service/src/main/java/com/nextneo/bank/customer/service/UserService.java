@@ -30,7 +30,7 @@ public class UserService {
 	UserRepository repository;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public User addClient(User user) throws BusinessException{
+	public User addClient(User user) throws BusinessException, Exception {
 		LOGGER.info(" addClient ");	
 		if(user.getId()!=null){
 			throw new BusinessException(MessageProperties.getMessage("use_update_method"), null);
@@ -41,7 +41,7 @@ public class UserService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public User updateUser(User user) throws BusinessException{
+	public User updateUser(User user) throws BusinessException, Exception{
 		LOGGER.info(" updateUser ");
 		if(user.getId()==null){
 			throw new BusinessException(MessageProperties.getMessage("user_id_required"), null);
@@ -51,17 +51,26 @@ public class UserService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public User findById(long id){
+	public User findById(long id) throws BusinessException, Exception {
 		LOGGER.info(" findById ");
 		
-		return repository.findById(id);
+		User user = repository.findById(id);
+		if (user == null || user.getId() == null) {
+			throw new BusinessException(MessageProperties.getMessage("user_not_found"), null);
+		}
+		return user;
+
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<User> findById(Set<Long> usersId){
-		LOGGER.info(" findByAccount ");
+	public List<User> findById(Set<Long> usersId) throws BusinessException, Exception {
+		LOGGER.info(" findById ");
 		
-		return repository.findById(usersId);
+		List<User> users = repository.findById(usersId);
+		if (users == null || users.isEmpty()) {
+			throw new BusinessException(MessageProperties.getMessage("user_not_found"), null);
+		}
+		return users;
 	}
 	
 }
